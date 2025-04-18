@@ -40,7 +40,7 @@
     <div class="content-wrapper">
       <h1>ABOUT ME</h1>
       <div class="about-content">
-        <p class="large-text">I'm Taylan, a Tokyo-based creative specializing in photography and videography. My work focuses on capturing the raw emotion and authentic stories that make each moment unique.</p>
+        <p class="large-text">I'm Ertug, a Tokyo-based creative specializing in photography and videography. My work focuses on capturing the raw emotion and authentic stories that make each moment unique.</p>
         <div class="about-grid">
           <div class="about-item">
             <h2>PHILOSOPHY</h2>
@@ -107,7 +107,7 @@
         <div class="contact-info">
           <div class="contact-item">
             <h2>EMAIL</h2>
-            <p>hello@taylan.com</p>
+            <p>hello@ertug.com</p>
           </div>
           <div class="contact-item">
             <h2>INSTAGRAM</h2>
@@ -161,12 +161,31 @@
       element.addEventListener('mouseenter', () => {
         cursor.style.transform = 'scale(1.5)';
         cursorFollower.style.transform = 'scale(0.5)';
+        
+        // Trigger profile image hover effect when menu items are hovered
+        if (element.classList.contains('nav-item')) {
+          document.querySelector('.profile-image').style.filter = 'grayscale(0%) contrast(100%)';
+        }
       });
       
       element.addEventListener('mouseleave', () => {
         cursor.style.transform = 'scale(1)';
         cursorFollower.style.transform = 'scale(1)';
+        
+        // Reset profile image when menu hover ends
+        if (element.classList.contains('nav-item')) {
+          document.querySelector('.profile-image').style.filter = 'grayscale(100%) contrast(120%)';
+        }
       });
+    });
+
+    // Keep the original profile image hover effect
+    document.querySelector('.profile-image').addEventListener('mouseenter', () => {
+      document.querySelector('.profile-image').style.filter = 'grayscale(0%) contrast(100%)';
+    });
+
+    document.querySelector('.profile-image').addEventListener('mouseleave', () => {
+      document.querySelector('.profile-image').style.filter = 'grayscale(100%) contrast(120%)';
     });
 
     function showLoading() {
@@ -182,9 +201,26 @@
     }
 
     function navigate(pageId) {
-      const transition = showLoading();
-      
-      setTimeout(() => {
+      // Only show loading for gallery page
+      if (pageId === 'gallery') {
+        const transition = showLoading();
+        
+        setTimeout(() => {
+          document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+            page.style.transform = 'translateY(20px)';
+          });
+          
+          nav.style.display = 'none';
+          
+          const targetPage = document.getElementById(pageId);
+          targetPage.classList.add('active');
+          targetPage.style.transform = 'translateY(0)';
+          
+          hideLoading(transition);
+        }, 300);
+      } else {
+        // For other pages, transition immediately
         document.querySelectorAll('.page').forEach(page => {
           page.classList.remove('active');
           page.style.transform = 'translateY(20px)';
@@ -195,25 +231,18 @@
         const targetPage = document.getElementById(pageId);
         targetPage.classList.add('active');
         targetPage.style.transform = 'translateY(0)';
-        
-        hideLoading(transition);
-      }, 300);
+      }
     }
 
     function goBack() {
-      const transition = showLoading();
+      // No loading state when going back
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+        page.style.transform = 'translateY(20px)';
+      });
       
-      setTimeout(() => {
-        document.querySelectorAll('.page').forEach(page => {
-          page.classList.remove('active');
-          page.style.transform = 'translateY(20px)';
-        });
-        
-        nav.style.display = 'flex';
-        nav.style.transform = 'translateY(0)';
-        
-        hideLoading(transition);
-      }, 300);
+      nav.style.display = 'flex';
+      nav.style.transform = 'translateY(0)';
     }
 
     // Add loading state to gallery images
