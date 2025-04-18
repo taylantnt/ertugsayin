@@ -6,7 +6,7 @@
   <title>Stylized Nav Website</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Syne+Mono&family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -17,9 +17,9 @@
     html, body {
       height: 100%;
       overflow: hidden;
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Archivo Black', sans-serif;
       background: #fdfcf7;
-      transition: font 0.5s ease, background 0.5s ease;
+      transition: background 0.5s ease;
     }
 
     body {
@@ -35,15 +35,15 @@
       flex-direction: column;
       gap: 3rem;
       text-align: left;
-      z-index: 4;
+      z-index: 2;
     }
 
     .nav-item {
       font-size: 6vw;
       color: #111;
       cursor: pointer;
-      transition: all 0.5s ease;
-      font-family: 'Orbitron', sans-serif;
+      transition: font 0.5s ease, transform 0.5s ease;
+      font-family: 'Archivo Black', sans-serif;
     }
 
     .nav-item:hover {
@@ -52,12 +52,14 @@
     }
 
     .profile-image {
-      position: relative;
-      left: -30rem;
-      top: 280px;
-      max-height: 1500vh;
-      max-width: 1100vw;
-      z-index: 2;
+      position: absolute;
+      right: 2rem;
+      bottom: 2rem;
+      width: 30vw;
+      max-width: 100%;
+      height: auto;
+      z-index: 1;
+      transition: width 0.5s ease, height 0.5s ease;
     }
 
     .page {
@@ -78,6 +80,7 @@
       transition: opacity 0.5s ease;
       padding: 2rem;
       text-align: center;
+      z-index: 3;
     }
 
     .page.active {
@@ -87,8 +90,8 @@
 
     .back-button {
       position: absolute;
-      top: 2rem;
-      left: 2rem;
+      top: 1rem;
+      left: 1rem;
       font-size: 1.5rem;
       background: transparent;
       border: 2px solid white;
@@ -96,6 +99,7 @@
       padding: 0.5rem 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
+      z-index: 4;
     }
 
     .back-button:hover {
@@ -106,23 +110,29 @@
     @media (max-width: 768px) {
       body {
         padding-left: 2rem;
-        justify-content: center;
       }
+
       .nav-item {
         font-size: 3rem;
       }
+
       .profile-image {
-        display: none;
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        width: 50vw;
+        height: auto;
+        display: block;
       }
     }
   </style>
 </head>
 <body>
   <nav id="nav">
-    <div class="nav-item" onclick="navigate('about')">about</div>
-    <div class="nav-item" onclick="navigate('gallery')">gallery</div>
-    <div class="nav-item" onclick="navigate('pricing')">pricing</div>
-    <div class="nav-item" onclick="navigate('contact')">contact</div>
+    <div class="nav-item" onclick="navigate('about')">About.</div>
+    <div class="nav-item" onclick="navigate('gallery')">Gallery.</div>
+    <div class="nav-item" onclick="navigate('pricing')">Pricing.</div>
+    <div class="nav-item" onclick="navigate('contact')">Contact.</div>
   </nav>
 
   <img src="https://cdn.glitch.global/26fdbfc4-4b80-42b3-8283-38778201437d/1?v=1744942549918" alt="Profile" class="profile-image">
