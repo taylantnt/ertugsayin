@@ -29,23 +29,49 @@ nav {
 }
 
 .nav-item {
-  font-size: 9vw;
+  position: relative; /* Added to contain absolute children */
+  font-size: 6vw;
   color: #111;
   cursor: pointer;
-  transition: font 0.5s ease, transform 0.5s ease;
+  transition: transform 0.5s ease; /* Removed font-family transition */
+  will-change: transform; /* Removed font-family */
+}
+
+.nav-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.nav-text.normal {
   font-family: 'Archivo Black', sans-serif;
+  opacity: 1;
+}
+
+.nav-text.hover {
+  font-family: 'Libre Barcode 39 Text', system-ui;
+  opacity: 0;
 }
 
 .nav-item:hover {
-  font-family: 'Libre Barcode 39 Text', system-ui;
   transform: translateX(10px);
+}
+
+.nav-item:hover .nav-text.normal {
+  opacity: 0;
+}
+
+.nav-item:hover .nav-text.hover {
+  opacity: 1;
 }
 
 .profile-image {
   position: absolute;
-  right: -8rem;
+  right: 2rem;
   bottom: 2rem;
-  width: 80vw;
+  width: 30vw;
   max-width: 100%;
   height: auto;
   z-index: 1;
