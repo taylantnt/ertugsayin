@@ -2,17 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Libre Barcode 39 Extended Text', cursive;
   color: #ffffff;
   text-decoration: none;
-}
-
-html, body {
-  height: 100%;
-  font-family: 'Space Grotesk', sans-serif;
-  background: #000000;
-  color: #ffffff;
-  overflow-x: hidden;
 }
 
 body {
@@ -23,6 +14,7 @@ body {
   background: #000;
   position: relative;
   padding: 2rem;
+  font-family: 'Inter', sans-serif;
 }
 
 body::before {
@@ -48,16 +40,13 @@ nav {
 }
 
 .nav-item {
-  position: relative;
+  font-family: 'Libre Barcode 39 Extended Text', cursive;
   font-size: 3.5rem;
   font-weight: 400;
   letter-spacing: 2px;
-  color: #ffffff;
   cursor: pointer;
   transition: all 0.3s ease;
   opacity: 0.7;
-  overflow: hidden;
-  line-height: 1;
 }
 
 .nav-item::after {
@@ -123,18 +112,17 @@ nav {
 }
 
 .page {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background: rgba(0, 0, 0, 0.95);
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   line-height: 1.6;
   opacity: 0;
@@ -145,6 +133,8 @@ nav {
   z-index: 3;
   backdrop-filter: blur(10px);
   visibility: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .page.active {
@@ -162,6 +152,7 @@ nav {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  padding-top: 6rem;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease 0.2s;
@@ -376,25 +367,25 @@ nav {
 }
 
 .back-button {
-  position: absolute;
+  position: fixed;
   top: 1rem;
   left: 1rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
   opacity: 0.7;
-  border-radius: 4px;
+  z-index: 4;
 }
 
 .back-button:hover {
   opacity: 1;
-  background: rgba(255,255,255,0.1);
-  transform: translateX(-5px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .cursor {
@@ -481,12 +472,27 @@ nav {
     padding: 1rem;
   }
 
+  .content-wrapper {
+    padding-top: 4rem;
+  }
+
   .page h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .page h2 {
+    font-size: 1.5rem;
   }
 
   .large-text {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .about-grid,
