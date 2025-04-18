@@ -134,7 +134,7 @@ nav {
   align-items: center;
   background: rgba(0, 0, 0, 0.95);
   color: #ffffff;
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   line-height: 1.6;
   opacity: 0;
@@ -173,26 +173,26 @@ nav {
 }
 
 .page h1 {
-  font-size: 6rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 4rem;
   font-weight: 800;
-  margin-bottom: 3rem;
-  letter-spacing: -0.02em;
-  position: relative;
-  line-height: 1;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
 }
 
 .page h2 {
-  font-size: 2.5rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.05em;
 }
 
 .large-text {
-  font-size: 2rem;
-  line-height: 1.4;
-  margin-bottom: 3rem;
-  max-width: 800px;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-bottom: 2rem;
 }
 
 .about-grid {
