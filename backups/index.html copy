@@ -3,52 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taylan - Photography & Videography</title>
+  <title>Stylized Nav Website</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oi&family=Archivo+Black&family=Libre+Barcode+39+Text&family=Press+Start+2P&family=Rubik+80s+Fade&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav id="nav">
     <div class="nav-item" onclick="navigate('about')">
-      <span class="nav-text">About</span>
+      <span class="nav-text normal">About.</span>
+      <span class="nav-text hover">About.</span>
     </div>
     <div class="nav-item" onclick="navigate('gallery')">
-      <span class="nav-text">Gallery</span>
+      <span class="nav-text normal">Gallery.</span>
+      <span class="nav-text hover">Gallery.</span>
     </div>
     <div class="nav-item" onclick="navigate('pricing')">
-      <span class="nav-text">Pricing</span>
+      <span class="nav-text normal">Pricing.</span>
+      <span class="nav-text hover">Pricing.</span>
     </div>
     <div class="nav-item" onclick="navigate('contact')">
-      <span class="nav-text">Contact</span>
+      <span class="nav-text normal">Contact.</span>
+      <span class="nav-text hover">Contact.</span>
     </div>
   </nav>
 
   <img src="https://cdn.glitch.global/26fdbfc4-4b80-42b3-8283-38778201437d/1?v=1744942549918" alt="Profile" class="profile-image">
 
   <div id="about" class="page">
-    <button class="back-button" onclick="goBack()">← Back</button>
+    <button class="back-button" onclick="goBack()">Back</button>
     <h1>About Me</h1>
-    <p>Hi, I'm Taylan, a Tokyo-based creative specializing in photography and videography. I'm passionate about capturing emotion and stories in visual form. This space is where I get to share that with you.</p>
+    <p>Hi, I’m Taylan, a Tokyo-based creative specializing in photography and videography. I’m passionate about capturing emotion and stories in visual form. This space is where I get to share that with you.</p>
   </div>
 
   <div id="gallery" class="page">
-    <button class="back-button" onclick="goBack()">← Back</button>
+    <button class="back-button" onclick="goBack()">Back</button>
     <h1>Gallery</h1>
     <p>Explore a curated selection of my photography and video projects. From personal to professional, this gallery is a showcase of my creative journey and vision.</p>
   </div>
 
   <div id="pricing" class="page">
-    <button class="back-button" onclick="goBack()">← Back</button>
+    <button class="back-button" onclick="goBack()">Back</button>
     <h1>Pricing</h1>
-    <p>Interested in working together? Here's a quick overview of pricing options for portraits, events, video packages and commercial work. Feel free to reach out for custom quotes.</p>
+    <p>Interested in working together? Here’s a quick overview of pricing options for portraits, events, video packages and commercial work. Feel free to reach out for custom quotes.</p>
   </div>
 
   <div id="contact" class="page">
-    <button class="back-button" onclick="goBack()">← Back</button>
+    <button class="back-button" onclick="goBack()">Back</button>
     <h1>Contact</h1>
-    <p>Let's create something amazing together. You can reach me through email, Instagram, or the contact form below. I'm excited to hear from you!</p>
+    <p>Let’s create something amazing together. You can reach me through email, Instagram, or the contact form below. I’m excited to hear from you!</p>
   </div>
 
   <script>
