@@ -1,61 +1,117 @@
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    html, body {
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Major Mono Display', monospace;
-      transition: font 0.5s ease;
-    }
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Archivo Black', sans-serif;
+  background: #fdfcf7;
+  transition: background 0.5s ease;
+}
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: url('your-backdrop-image.jpg') center/cover no-repeat;
-      transition: background 1s ease;
-    }
+body {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 5rem;
+  position: relative;
+}
 
-    nav {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      text-align: center;
-    }
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: left;
+  z-index: 2;
+}
 
-    .nav-item {
-      font-size: 4rem;
-      color: white;
-      cursor: pointer;
-      transition: all 0.5s ease;
-    }
+.nav-item {
+  font-size: 9vw;
+  color: #111;
+  cursor: pointer;
+  transition: font 0.5s ease, transform 0.5s ease;
+  font-family: 'Archivo Black', sans-serif;
+}
 
-    .nav-item:hover {
-      font-family: 'Press Start 2P', cursive;
-      transform: scale(1.1);
-    }
+.nav-item:hover {
+  font-family: 'Libre Barcode 39 Text', system-ui;
+  transform: translateX(10px);
+}
 
-    .page {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-      color: white;
-      font-size: 3rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.5s ease;
-    }
+.profile-image {
+  position: absolute;
+  right: -8rem;
+  bottom: 2rem;
+  width: 80vw;
+  max-width: 100%;
+  height: auto;
+  z-index: 1;
+  transition: width 0.5s ease, height 0.5s ease;
+}
 
-    .page.active {
-      opacity: 1;
-      pointer-events: all;
-    }
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  color: white;
+  font-size: 2.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  padding: 2rem;
+  text-align: center;
+  z-index: 3;
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 4;
+}
+
+.back-button:hover {
+  background: white;
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-left: 2rem;
+  }
+
+  .nav-item {
+    font-size: 3rem;
+  }
+
+  .profile-image {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 50vw;
+    height: auto;
+    display: block;
+  }
+}
