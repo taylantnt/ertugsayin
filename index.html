@@ -12,6 +12,7 @@
 <body>
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
+  <div class="page-transition"></div>
 
   <h1 class="main-title">ERTUG SAYIN</h1>
 
@@ -32,7 +33,7 @@
     </div>
   </nav>
 
-  <img src="https://cdn.glitch.global/26fdbfc4-4b80-42b3-8283-38778201437d/bgc.png?v=1744994810575" alt="Profile" class="profile-image">
+  <img src="https://cdn.glitch.global/26fdbfc4-4b80-42b3-8283-38778201437d/bgc.png?v=1744994810575" alt="Profile" class="profile-image loading" onload="this.classList.remove('loading')">
 
   <div id="about" class="page">
     <button class="back-button" onclick="goBack()">← BACK</button>
@@ -168,28 +169,60 @@
       });
     });
 
+    function showLoading() {
+      const transition = document.querySelector('.page-transition');
+      transition.classList.add('active');
+      return transition;
+    }
+
+    function hideLoading(transition) {
+      setTimeout(() => {
+        transition.classList.remove('active');
+      }, 500);
+    }
+
     function navigate(pageId) {
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-        page.style.transform = 'translateY(20px)';
-      });
+      const transition = showLoading();
       
-      nav.style.display = 'none';
-      
-      const targetPage = document.getElementById(pageId);
-      targetPage.classList.add('active');
-      targetPage.style.transform = 'translateY(0)';
+      setTimeout(() => {
+        document.querySelectorAll('.page').forEach(page => {
+          page.classList.remove('active');
+          page.style.transform = 'translateY(20px)';
+        });
+        
+        nav.style.display = 'none';
+        
+        const targetPage = document.getElementById(pageId);
+        targetPage.classList.add('active');
+        targetPage.style.transform = 'translateY(0)';
+        
+        hideLoading(transition);
+      }, 300);
     }
 
     function goBack() {
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-        page.style.transform = 'translateY(20px)';
-      });
+      const transition = showLoading();
       
-      nav.style.display = 'flex';
-      nav.style.transform = 'translateY(0)';
+      setTimeout(() => {
+        document.querySelectorAll('.page').forEach(page => {
+          page.classList.remove('active');
+          page.style.transform = 'translateY(20px)';
+        });
+        
+        nav.style.display = 'flex';
+        nav.style.transform = 'translateY(0)';
+        
+        hideLoading(transition);
+      }, 300);
     }
+
+    // Add loading state to gallery images
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.classList.add('loading');
+      img.onload = function() {
+        this.classList.remove('loading');
+      };
+    });
   </script>
 </body>
 </html>
