@@ -6,63 +6,213 @@
   <title>Taylan - Photography & Videography</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
   <nav id="nav">
     <div class="nav-item" onclick="navigate('about')">
-      <span class="nav-text">About</span>
+      <span class="nav-text">ABOUT</span>
     </div>
     <div class="nav-item" onclick="navigate('gallery')">
-      <span class="nav-text">Gallery</span>
+      <span class="nav-text">GALLERY</span>
     </div>
     <div class="nav-item" onclick="navigate('pricing')">
-      <span class="nav-text">Pricing</span>
+      <span class="nav-text">PRICING</span>
     </div>
     <div class="nav-item" onclick="navigate('contact')">
-      <span class="nav-text">Contact</span>
+      <span class="nav-text">CONTACT</span>
     </div>
   </nav>
 
   <img src="https://cdn.glitch.global/26fdbfc4-4b80-42b3-8283-38778201437d/1?v=1744942549918" alt="Profile" class="profile-image">
 
   <div id="about" class="page">
-    <button class="back-button" onclick="goBack()">← Back</button>
-    <h1>About Me</h1>
-    <p>Hi, I'm Taylan, a Tokyo-based creative specializing in photography and videography. I'm passionate about capturing emotion and stories in visual form. This space is where I get to share that with you.</p>
+    <button class="back-button" onclick="goBack()">← BACK</button>
+    <div class="content-wrapper">
+      <h1>ABOUT ME</h1>
+      <div class="about-content">
+        <p class="large-text">I'm Taylan, a Tokyo-based creative specializing in photography and videography. My work focuses on capturing the raw emotion and authentic stories that make each moment unique.</p>
+        <div class="about-grid">
+          <div class="about-item">
+            <h2>PHILOSOPHY</h2>
+            <p>Every frame tells a story. I believe in creating images that resonate with emotion and authenticity, capturing the essence of each moment.</p>
+          </div>
+          <div class="about-item">
+            <h2>EXPERIENCE</h2>
+            <p>10+ years of professional experience in both photography and videography, working with clients across fashion, lifestyle, and commercial sectors.</p>
+          </div>
+          <div class="about-item">
+            <h2>APPROACH</h2>
+            <p>Minimalist yet impactful. I focus on composition, light, and emotion to create images that stand the test of time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="gallery" class="page">
-    <button class="back-button" onclick="goBack()">← Back</button>
-    <h1>Gallery</h1>
-    <p>Explore a curated selection of my photography and video projects. From personal to professional, this gallery is a showcase of my creative journey and vision.</p>
+    <button class="back-button" onclick="goBack()">← BACK</button>
+    <div class="content-wrapper">
+      <h1>GALLERY</h1>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <h2>PORTRAITS</h2>
+          <p>Intimate moments captured in natural light</p>
+        </div>
+        <div class="gallery-item">
+          <h2>FASHION</h2>
+          <p>Editorial and commercial fashion photography</p>
+        </div>
+        <div class="gallery-item">
+          <h2>LIFESTYLE</h2>
+          <p>Everyday moments turned into art</p>
+        </div>
+        <div class="gallery-item">
+          <h2>VIDEO</h2>
+          <p>Cinematic storytelling through motion</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="pricing" class="page">
-    <button class="back-button" onclick="goBack()">← Back</button>
-    <h1>Pricing</h1>
-    <p>Interested in working together? Here's a quick overview of pricing options for portraits, events, video packages and commercial work. Feel free to reach out for custom quotes.</p>
+    <button class="back-button" onclick="goBack()">← BACK</button>
+    <div class="content-wrapper">
+      <h1>PRICING</h1>
+      <div class="pricing-grid">
+        <div class="pricing-item">
+          <h2>PORTRAIT SESSIONS</h2>
+          <p class="price">¥50,000</p>
+          <ul>
+            <li>2-hour session</li>
+            <li>2 locations</li>
+            <li>30 edited images</li>
+            <li>Online gallery</li>
+          </ul>
+        </div>
+        <div class="pricing-item">
+          <h2>COMMERCIAL</h2>
+          <p class="price">¥150,000</p>
+          <ul>
+            <li>Full day shoot</li>
+            <li>Multiple setups</li>
+            <li>50+ edited images</li>
+            <li>Commercial license</li>
+          </ul>
+        </div>
+        <div class="pricing-item">
+          <h2>VIDEO PACKAGE</h2>
+          <p class="price">¥200,000</p>
+          <ul>
+            <li>Full day shoot</li>
+            <li>Professional editing</li>
+            <li>Color grading</li>
+            <li>Music licensing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div id="contact" class="page">
-    <button class="back-button" onclick="goBack()">← Back</button>
-    <h1>Contact</h1>
-    <p>Let's create something amazing together. You can reach me through email, Instagram, or the contact form below. I'm excited to hear from you!</p>
+    <button class="back-button" onclick="goBack()">← BACK</button>
+    <div class="content-wrapper">
+      <h1>CONTACT</h1>
+      <div class="contact-content">
+        <p class="large-text">Let's create something amazing together.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <h2>EMAIL</h2>
+            <p>hello@taylan.com</p>
+          </div>
+          <div class="contact-item">
+            <h2>INSTAGRAM</h2>
+            <p>@taylan.photo</p>
+          </div>
+          <div class="contact-item">
+            <h2>LOCATION</h2>
+            <p>Tokyo, Japan</p>
+          </div>
+        </div>
+        <form class="contact-form">
+          <input type="text" placeholder="NAME" required>
+          <input type="email" placeholder="EMAIL" required>
+          <textarea placeholder="MESSAGE" required></textarea>
+          <button type="submit">SEND MESSAGE</button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <script>
     const nav = document.getElementById('nav');
+    const cursor = document.querySelector('.cursor');
+    const cursorFollower = document.querySelector('.cursor-follower');
+    let mouseX = 0;
+    let mouseY = 0;
+    let followerX = 0;
+    let followerY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+      const dx = mouseX - followerX;
+      const dy = mouseY - followerY;
+      
+      followerX += dx * 0.1;
+      followerY += dy * 0.1;
+      
+      cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+      
+      requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
+
+    document.querySelectorAll('.nav-item, .back-button, button, input, textarea').forEach(element => {
+      element.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'scale(1.5)';
+        cursorFollower.style.transform = 'scale(0.5)';
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'scale(1)';
+        cursorFollower.style.transform = 'scale(1)';
+      });
+    });
 
     function navigate(pageId) {
-      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-      document.getElementById(pageId).classList.add('active');
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+        page.style.transform = 'translateY(20px)';
+      });
+      
       nav.style.display = 'none';
+      
+      const targetPage = document.getElementById(pageId);
+      targetPage.classList.add('active');
+      
+      targetPage.offsetHeight;
+      
+      targetPage.style.transform = 'translateY(0)';
     }
 
     function goBack() {
-      document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+        page.style.transform = 'translateY(20px)';
+      });
+      
       nav.style.display = 'flex';
+      nav.style.transform = 'translateY(0)';
     }
   </script>
 </body>
