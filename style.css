@@ -156,6 +156,8 @@ nav {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease 0.2s;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .page.active .content-wrapper {
@@ -206,13 +208,13 @@ nav {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   margin-top: 4rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0;
 }
 
 .gallery-item {
@@ -454,6 +456,20 @@ nav {
   color: inherit;
 }
 
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   body {
     padding: 1rem;
@@ -475,6 +491,8 @@ nav {
 
   .content-wrapper {
     padding-top: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .page h1 {
@@ -506,7 +524,7 @@ nav {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
-    padding: 0 0.5rem;
+    padding: 0;
   }
 
   .gallery-item {
