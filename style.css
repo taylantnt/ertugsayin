@@ -33,25 +33,28 @@ nav {
   font-size: 6vw;
   color: #111;
   cursor: pointer;
-  transition: transform 0.5s ease; /* Removed font-family transition */
-  will-change: transform; /* Removed font-family */
+  transition: transform 0.5s ease;
+  will-change: transform;
 }
 
 .nav-text {
   position: absolute;
   top: 0;
   left: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap; /* Prevent text wrapping */
+  will-change: opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .nav-text.normal {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Rubik 80s Fade', sans-serif;
   opacity: 1;
 }
 
 .nav-text.hover {
-  font-family: 'Libre Barcode 39 Text', system-ui;
+  font-family: 'Libre Barcode 39 Text';
   opacity: 0;
 }
 
