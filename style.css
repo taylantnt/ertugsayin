@@ -481,7 +481,7 @@ nav {
   }
 
   .profile-image {
-    width: 100%;
+    width: 120%;
     max-width: none;
     opacity: 1;
   }
@@ -496,12 +496,12 @@ nav {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 10rem;
   font-weight: 400;
+  text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   z-index: 0;
   opacity: 0.9;
-  overflow: hidden;
-  white-space: nowrap;
+  white-space: wrap;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
   .content-wrapper {
