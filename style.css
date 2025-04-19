@@ -108,7 +108,7 @@ nav {
   z-index: 0;
   opacity: 0.9;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: wrap;
   text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
