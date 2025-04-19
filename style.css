@@ -495,7 +495,7 @@ nav {
   transform: translate(-50%, -50%);
   font-family: 'Bebas Neue', sans-serif;
   font-size: 10rem;
-    top: 1px;
+    bottom: -400px;
   font-weight: 400;
   text-align: center;
   letter-spacing: 0.1em;
