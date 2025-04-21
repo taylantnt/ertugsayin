@@ -483,6 +483,7 @@ nav {
   .profile-image {
     width: 120%;
     max-width: none;
+    margin-top: 30px;
     opacity: 1;
   }
 
