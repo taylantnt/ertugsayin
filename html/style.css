@@ -575,12 +575,12 @@ nav {
 
   .main-title {
     position: absolute;
-    top: 33%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(6.6rem, 28vw, 8.8rem);
-    line-height: 0.84;
+    font-size: clamp(7.8rem, 33vw, 11rem);
+    line-height: 0.8;
     font-weight: 400;
     text-align: center;
     letter-spacing: 0.06em;
