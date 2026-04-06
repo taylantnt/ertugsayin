@@ -470,6 +470,11 @@ nav {
   .gallery-item:hover .gallery-media img {
     transform: none;
   }
+
+  .nav-item:hover,
+  .instagram-nav:hover {
+    transform: none;
+  }
 }
 
 .instagram-link {
@@ -575,11 +580,11 @@ nav {
 
   .main-title {
     position: absolute;
-    top: 27%;
+    top: 22%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(7.8rem, 33vw, 11rem);
+    font-size: clamp(9rem, 38vw, 13.5rem);
     line-height: 0.8;
     font-weight: 400;
     text-align: center;
