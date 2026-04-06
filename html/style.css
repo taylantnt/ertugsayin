@@ -540,6 +540,8 @@ nav {
   body {
     padding: 0;
     min-height: 100svh;
+    position: fixed;
+    inset: 0;
   }
 
   nav {
@@ -553,9 +555,10 @@ nav {
 
   .profile-image {
     left: 50%;
-    top: 55%;
+    top: 58%;
     transform: translate(-50%, -50%);
-    width: 145vw;
+    width: auto;
+    height: 88svh;
     max-width: none;
     opacity: 1;
   }
@@ -567,12 +570,12 @@ nav {
 
   .main-title {
     position: absolute;
-    top: 45%;
+    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(7.7rem, 31vw, 10rem);
-    line-height: 0.86;
+    font-size: clamp(7rem, 29vw, 9.4rem);
+    line-height: 0.84;
     font-weight: 400;
     text-align: center;
     letter-spacing: 0.06em;
@@ -583,6 +586,7 @@ nav {
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     width: 100vw;
     overflow: visible;
+    pointer-events: none;
   }
   .content-wrapper {
     padding-top: 4rem;
