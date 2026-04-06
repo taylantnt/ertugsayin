@@ -17,6 +17,11 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+body.custom-cursor-enabled,
+body.custom-cursor-enabled * {
+  cursor: none !important;
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -400,7 +405,11 @@ nav {
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  transition: transform 0.2s ease;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
 .cursor-follower {
@@ -411,7 +420,18 @@ nav {
   position: fixed;
   pointer-events: none;
   z-index: 9998;
-  transition: transform 0.3s ease;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
 }
 
 .instagram-link {

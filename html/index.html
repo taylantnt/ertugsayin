@@ -17,23 +17,23 @@
   <h1 class="main-title">ERTUG SAYIN</h1>
 
   <nav id="nav">
-    <div class="nav-item" onclick="navigate('about')">
+    <div class="nav-item" role="button" tabindex="0" onclick="navigate('about')">
       <span class="nav-text">ABOUT</span>
     </div>
-    <div class="nav-item" onclick="navigate('gallery')">
+    <div class="nav-item" role="button" tabindex="0" onclick="navigate('gallery')">
       <span class="nav-text">GALLERY</span>
     </div>
     <div class="nav-item">
-      <a href="https://instagram.com/ertugcsayin">
+      <a href="https://instagram.com/ertugcsayin" class="instagram-nav">
         <span class="nav-text">INSTAGRAM</span>
       </a>
     </div>
-    <div class="nav-item" onclick="navigate('contact')">
+    <div class="nav-item" role="button" tabindex="0" onclick="navigate('contact')">
       <span class="nav-text">CONTACT</span>
     </div>
   </nav>
 
-  <img src="https://cdn.glitch.global/26fdbfc4-4b80-42b3-8283-38778201437d/bgc.png?v=1744994810575" alt="Profile" class="profile-image loading" onload="this.classList.remove('loading')">
+  <img src="../assets/bgc.png" alt="Profile" class="profile-image loading" onload="this.classList.remove('loading')">
 
   <div id="about" class="page">
     <button class="back-button" onclick="goBack()">← BACK</button>
@@ -128,52 +128,87 @@
     const nav = document.getElementById('nav');
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
-    let mouseX = 0;
-    let mouseY = 0;
-    let followerX = 0;
-    let followerY = 0;
+    const profileImage = document.querySelector('.profile-image');
+    const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let followerX = mouseX;
+    let followerY = mouseY;
+    let cursorScale = 1;
+    let followerScale = 1;
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+    if (!isTouchDevice && cursor && cursorFollower) {
+      document.body.classList.add('custom-cursor-enabled');
 
-    function animateCursor() {
-      const dx = mouseX - followerX;
-      const dy = mouseY - followerY;
-      
-      followerX += dx * 0.1;
-      followerY += dy * 0.1;
-      
-      cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-      cursorFollower.style.transform = `translate(${followerX}px, ${followerY}px)`;
-      
-      requestAnimationFrame(animateCursor);
+      const updateCursor = () => {
+        cursor.style.left = `${mouseX}px`;
+        cursor.style.top = `${mouseY}px`;
+        cursor.style.transform = `translate(-50%, -50%) scale(${cursorScale})`;
+      };
+
+      const updateFollower = () => {
+        cursorFollower.style.left = `${followerX}px`;
+        cursorFollower.style.top = `${followerY}px`;
+        cursorFollower.style.transform = `translate(-50%, -50%) scale(${followerScale})`;
+      };
+
+      const animateCursor = () => {
+        followerX += (mouseX - followerX) * 0.2;
+        followerY += (mouseY - followerY) * 0.2;
+        updateFollower();
+        requestAnimationFrame(animateCursor);
+      };
+
+      updateCursor();
+      updateFollower();
+      animateCursor();
+
+      document.addEventListener('pointermove', (e) => {
+        if (e.pointerType && e.pointerType !== 'mouse') {
+          return;
+        }
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        updateCursor();
+      });
+
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        cursorFollower.style.opacity = '0';
+      });
+
+      document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+        cursorFollower.style.opacity = '1';
+      });
+
+      document.querySelectorAll('.nav-item, .back-button, button, input, textarea, a').forEach((element) => {
+        element.addEventListener('mouseenter', () => {
+          cursorScale = 1.4;
+          followerScale = 0.55;
+          updateCursor();
+          if (element.classList.contains('nav-item')) {
+            profileImage.style.filter = 'grayscale(0%) contrast(100%)';
+          }
+        });
+
+        element.addEventListener('mouseleave', () => {
+          cursorScale = 1;
+          followerScale = 1;
+          updateCursor();
+          if (element.classList.contains('nav-item')) {
+            profileImage.style.filter = 'grayscale(100%) contrast(120%)';
+          }
+        });
+      });
+    } else {
+      if (cursor) {
+        cursor.style.display = 'none';
+      }
+      if (cursorFollower) {
+        cursorFollower.style.display = 'none';
+      }
     }
-
-    animateCursor();
-
-    document.querySelectorAll('.nav-item, .back-button, button, input, textarea').forEach(element => {
-      element.addEventListener('mouseenter', () => {
-        cursor.style.transform = 'scale(1.5)';
-        cursorFollower.style.transform = 'scale(0.5)';
-        
-        // Trigger profile image hover effect when menu items are hovered
-        if (element.classList.contains('nav-item')) {
-          document.querySelector('.profile-image').style.filter = 'grayscale(0%) contrast(100%)';
-        }
-      });
-      
-      element.addEventListener('mouseleave', () => {
-        cursor.style.transform = 'scale(1)';
-        cursorFollower.style.transform = 'scale(1)';
-        
-        // Reset profile image when menu hover ends
-        if (element.classList.contains('nav-item')) {
-          document.querySelector('.profile-image').style.filter = 'grayscale(100%) contrast(120%)';
-        }
-      });
-    });
 
     // Keep the original profile image hover effect
     document.querySelector('.profile-image').addEventListener('mouseenter', () => {
@@ -247,6 +282,16 @@
       img.onload = function() {
         this.classList.remove('loading');
       };
+    });
+
+    // Enable keyboard accessibility for custom nav items
+    document.querySelectorAll('.nav-item[role="button"]').forEach(el => {
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          el.click();
+        }
+      });
     });
   </script>
 </body>
