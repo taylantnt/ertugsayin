@@ -106,7 +106,7 @@ nav {
 
 .main-title {
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Bebas Neue', sans-serif;
@@ -534,7 +534,7 @@ nav {
 @media (min-width: 769px) {
   .profile-image {
     left: 50%;
-    top: 51%;
+    top: 53%;
     transform: translate(-50%, -50%);
     width: 70vw;
     height: auto;
@@ -586,7 +586,7 @@ nav {
 
   .profile-image {
     left: 50%;
-    top: 60%;
+    top: 62%;
     transform: translate(-50%, -50%);
     width: auto;
     height: 84dvh;
@@ -601,7 +601,7 @@ nav {
 
   .main-title {
     position: absolute;
-    top: 22%;
+    top: 27%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Bebas Neue', sans-serif;
