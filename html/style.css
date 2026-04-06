@@ -215,60 +215,75 @@ nav {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 4rem;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0;
 }
 
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  aspect-ratio: 16/9;
+.gallery-intro {
+  max-width: 680px;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.78);
 }
 
-.gallery-item img {
+.gallery-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+  cursor: pointer;
+}
+
+.gallery-media {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.gallery-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
+  transition: transform 0.6s ease;
 }
 
-.gallery-item h2 {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  font-size: 2rem;
+.gallery-copy {
+  padding: 1rem 1rem 1.1rem;
+}
+
+.gallery-copy h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
   font-weight: 700;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.55rem;
 }
 
-.gallery-item p {
-  position: absolute;
-  bottom: 1rem;
-  left: 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease 0.1s;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+.gallery-copy p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.75);
 }
 
-.gallery-item:hover h2,
-.gallery-item:hover p {
-  opacity: 1;
-  transform: translateY(0);
+.gallery-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.06);
+}
+
+.gallery-item:hover .gallery-media img {
+  transform: scale(1.06);
 }
 
 .pricing-grid {
@@ -479,7 +494,7 @@ nav {
 
 @media (max-width: 1200px) {
   .gallery-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
   }
 }
@@ -552,47 +567,41 @@ nav {
   }
 
   .about-grid,
-  .gallery-grid,
   .pricing-grid,
   .contact-info {
     grid-template-columns: 1fr;
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     padding: 0;
   }
 
-  .gallery-item {
-    aspect-ratio: 1/1;
+  .gallery-intro {
+    margin-bottom: 1.25rem;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    text-align: left;
   }
 
-  .gallery-item h2 {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 0.5rem;
-    font-size: 1rem;
-    opacity: 1;
-    transform: translateY(0);
-    padding: 0.3rem 0.6rem;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 4px;
-    width: calc(100% - 1rem);
+  .gallery-media {
+    aspect-ratio: 4/3;
   }
 
-  .gallery-item p {
-    position: absolute;
-    bottom: 0.5rem;
-    left: 0.5rem;
-    font-size: 0.8rem;
-    opacity: 1;
-    transform: translateY(0);
-    padding: 0.3rem 0.6rem;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 4px;
-    width: calc(100% - 1rem);
-    line-height: 1.2;
+  .gallery-copy {
+    padding: 0.85rem 0.85rem 1rem;
+  }
+
+  .gallery-copy h2 {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.07em;
+  }
+
+  .gallery-copy p {
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }
 
