@@ -447,6 +447,29 @@ nav {
   .cursor-follower {
     display: none !important;
   }
+
+  .about-item,
+  .contact-item,
+  .gallery-item,
+  .gallery-media img {
+    transition: none;
+  }
+
+  .about-item:hover,
+  .contact-item:hover {
+    transform: none;
+    border-color: rgba(255,255,255,0.1);
+  }
+
+  .gallery-item:hover {
+    transform: none;
+    border-color: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.03);
+  }
+
+  .gallery-item:hover .gallery-media img {
+    transform: none;
+  }
 }
 
 .instagram-link {
